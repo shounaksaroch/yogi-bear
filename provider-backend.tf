@@ -1,20 +1,12 @@
 terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = ">=4.31.0"
-    }
-  }
   #####
   ## We have configured the backend in our PROD subscription (GDNA@Test) so using AzureKeys to make life easier. This is not the recommended method
   backend "azurerm" {
-    #access_key           = "abcdefghijklmnopqrstuvwxyz0123456789..."  # Can also be set via `ARM_ACCESS_KEY` environment variable.
-    # Will be passed in GITHUB workflow
-    resource_group_name: ${{ secrets.RESOURCE_GROUP }}
-    storage_account_name: ${{ secrets.STORAGE_ACCOUNT }}
-    container_name: ${{ secrets.CONTAINER_NAME }}
-    key: "new-test.terraform.tfstate"
-    #ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
+    resource_group_name  = secrets.RESOURCE_GROUP
+    storage_account_name = secrets.STORAGE_ACCOUNT
+    container_name       = secrets.CONTAINER_NAME
+    key                  = "sashakt.terraform.tfstate"
+    #ARM_ACCESS_KEY=secrets.ARM_ACCESS_KEY
     ###storage_account_name = "tfstate076"
     ###container_name       = "tfstate"
     ###resource_group_name  = "rg-tfstate"

@@ -34,10 +34,10 @@ jobs:
     - name: Terraform Init with Azurerm backend
       id: init
       env:
-        resource_group_name: ${{ secrets.RESOURCE_GROUP }}
-        storage_account_name: ${{ secrets.STORAGE_ACCOUNT }}
-        container_name: ${{ secrets.CONTAINER_NAME }}
-        key: "test.terraform.tfstate"
+        #resource_group_name: ${{ secrets.RESOURCE_GROUP }}
+        #storage_account_name: ${{ secrets.STORAGE_ACCOUNT }}
+        #container_name: ${{ secrets.CONTAINER_NAME }}
+        #key: "sashakt.terraform.tfstate"
         #ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
       #run: terraform init -backend-config="storage_account_name=$AZ_STORAGE_ACC_NM" -backend-config="container_name=$AZ_CONTAINER_NM" -backend-config="key=$TF_KEY" -backend-config="resource_group_name=$AZ_RG_NM" -backend-config="use_azuread_auth=true"
       run: terraform init

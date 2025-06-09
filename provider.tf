@@ -1,8 +1,5 @@
 # Configure Terraform
 terraform {
-  #####
-  # Moved backend config to provider-backend.tf
-  #####
   required_providers {
     azuread = {
       source  = "hashicorp/azuread"
