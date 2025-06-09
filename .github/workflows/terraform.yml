@@ -37,12 +37,12 @@ jobs:
         resource_group_name: ${{ secrets.RESOURCE_GROUP }}
         storage_account_name: ${{ secrets.STORAGE_ACCOUNT }}
         container_name: ${{ secrets.CONTAINER_NAME }}
-        key: "sashakt.terraform.tfstate"
+        TF_KEY: "sashakt.terraform.tfstate"
         #ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
-      run: terraform init -backend-config="storage_account_name=$AZ_STORAGE_ACC_NM" \
-                          -backend-config="container_name=${{ secrets.RESOURCE_GROUP }}\
+      run: terraform init -backend-config="storage_account_name=${{ secrets.STORAGE_ACCOUNT }}" \
+                          -backend-config="container_name=${{ secrets.CONTAINER_NAME }}" \
                           -backend-config="key=$TF_KEY" \
-                          -backend-config="resource_group_name=$AZ_RG_NM"
+                          -backend-config="resource_group_name=${{ secrets.RESOURCE_GROUP }}"
       #run: terraform init
       #run: terraform init -backend-config=./provider-backend.tf
 
