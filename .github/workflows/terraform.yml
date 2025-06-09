@@ -49,12 +49,13 @@ jobs:
         #AZ_RG_NM: ${{ secrets.RESOURCE_GROUP }}              # This is optional so hashed out
         AZ_STO_ACC_NM: ${{ vars.TEST_STORAGE_ACCOUNT }}
         AZ_CONTNR_NM: ${{ vars.TEST_CONTAINER }}
+        AZ_RG_NM: ${{ vars.TEST_RESOURCE_GROUP }}
         TF_KEY: ${{ vars.TEST_KEY }}
         AZ_TENANT_ID: ${{ vars.ARM_TENANT_ID }}
         BKEND_CLIENT_ID: ${{ vars.ARM_CLIENT_ID }} 
         #ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
       #run: terraform init
-      run: terraform init -backend-config="storage_account_name=$AZ_STO_ACC_NM" -backend-config="container_name=$AZ_CONTNR_NM" -backend-config="key=$TF_KEY"
+      run: terraform init -backend-config="storage_account_name=$AZ_STO_ACC_NM" -backend-config="container_name=$AZ_CONTNR_NM" -backend-config="key=$TF_KEY" -backend-config="resource_group_name=$AZ_RG_NM"
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
