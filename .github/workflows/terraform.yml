@@ -39,7 +39,7 @@ jobs:
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init with Azurerm backend
       id: init
-      env:
+      #env:
         #AZ_RG_NM: ${{ secrets.RESOURCE_GROUP }}      # This is optional so hashed out
         #AZ_STO_ACC_NM: ${{ secrets.STORAGE_ACCOUNT }}
         #AZ_CONTNR_NM: ${{ secrets.CONTAINER_NAME }}
