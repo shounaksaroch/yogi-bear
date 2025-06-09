@@ -51,6 +51,7 @@ jobs:
         AZ_CONTNR_NM: ${{ vars.TEST_CONTAINER }}
         TF_KEY: ${{ vars.TEST_KEY }}
         AZ_TENANT_ID: ${{ vars.ARM_TENANT_ID }}
+        BKEND_CLIENT_ID: ${{ vars.ARM_CLIENT_ID }} 
         #ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
       #run: terraform init
       run: terraform init -backend-config="storage_account_name=$AZ_STO_ACC_NM" -backend-config="container_name=$AZ_CONTNR_NM" -backend-config="key=$TF_KEY"
