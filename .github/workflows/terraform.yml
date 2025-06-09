@@ -40,11 +40,7 @@ jobs:
         TF_KEY: "sashakt.terraform.tfstate"
         #ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
       #run: terraform init
-      run: terraform init \
-           -backend-config="resource_group_name=$AZ_RG_NM"\
-           -backend-config="storage_account_name=$AZ_STO_ACC_NM"\
-           -backend-config="container_name=$AZ_CONTNR_NM"\
-           -backend-config="key=$TF_KEY"
+      run: terraform init -backend-config="resource_group_name=$AZ_RG_NM" -backend-config="storage_account_name=$AZ_STO_ACC_NM" -backend-config="container_name=$AZ_CONTNR_NM" -backend-config="key=$TF_KEY"
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
