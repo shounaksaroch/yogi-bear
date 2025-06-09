@@ -2,10 +2,12 @@ terraform {
   #####
   ## We have configured the backend in our PROD subscription (GDNA@Test) so using AzureKeys to make life easier. This is not the recommended method
   backend "azurerm" {
-    resource_group_name  = secrets.RESOURCE_GROUP
-    storage_account_name = secrets.STORAGE_ACCOUNT
-    container_name       = secrets.CONTAINER_NAME
-    key                  = "sashakt.terraform.tfstate"
+    ## NOT CONFIGURING NOTHING HERE BECAUSE WE GET THE ERROR 'Variables may not be used here.'
+    ## INSTEAD .. WE CONFIGURE IT IN THE GHA-WORKFLOW FILE
+    #resource_group_name  = secrets.RESOURCE_GROUP
+    #storage_account_name = secrets.STORAGE_ACCOUNT
+    #container_name       = secrets.CONTAINER_NAME
+    #key                  = "sashakt.terraform.tfstate"
     #ARM_ACCESS_KEY=secrets.ARM_ACCESS_KEY
     ###storage_account_name = "tfstate076"
     ###container_name       = "tfstate"
