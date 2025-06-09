@@ -40,12 +40,12 @@ jobs:
       id: init
       #env:
         #AZ_RG_NM: ${{ secrets.RESOURCE_GROUP }}      # This is optional so hashed out
-        #AZ_STO_ACC_NM: ${{ secrets.STORAGE_ACCOUNT }}
-        #AZ_CONTNR_NM: ${{ secrets.CONTAINER_NAME }}
-        #TF_KEY: "sashakt.terraform.tfstate"
+        AZ_STO_ACC_NM: ${{ env.TEST_STORAGE_ACCOUNT }}
+        AZ_CONTNR_NM: ${{ env.TEST_CONTAINER }}
+        TF_KEY: ${{ env.TEST_KEY }}
         #ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
-      run: terraform init
-      #run: terraform init -backend-config="storage_account_name=$AZ_STO_ACC_NM" -backend-config="container_name=$AZ_CONTNR_NM" -backend-config="key=$TF_KEY"
+      #run: terraform init
+      run: terraform init -backend-config="storage_account_name=$AZ_STO_ACC_NM" -backend-config="container_name=$AZ_CONTNR_NM" -backend-config="key=$TF_KEY"
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
