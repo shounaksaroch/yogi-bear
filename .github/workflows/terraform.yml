@@ -35,13 +35,16 @@ jobs:
     - name: DUMP ENV VARIABLE CONTEXT - ENV here should be 'iweoftest'
       run: env
 
+    - name: DUMP ENV VARIABLE CONTEXT - ENV here should be 'iweoftest'
+      run: vars.iweoftest
+
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init with Azurerm backend
       id: init
       env:
         #AZ_RG_NM: ${{ secrets.RESOURCE_GROUP }}      # This is optional so hashed out
-        AZ_STO_ACC_NM: ${{ env.TEST_STORAGE_ACCOUNT }}
-        AZ_CONTNR_NM: ${{ env.TEST_CONTAINER }}
+        AZ_STO_ACC_NM: ${{ vars.TEST_STORAGE_ACCOUNT }}
+        AZ_CONTNR_NM: ${{ vars.TEST_CONTAINER }}
         TF_KEY: ${{ env.TEST_KEY }}
         #ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
       #run: terraform init
