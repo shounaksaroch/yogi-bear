@@ -57,9 +57,9 @@ jobs:
     - name: Terraform Plan
       id: plan
       env:
-        #ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-        #ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-        #ARM_TENANT_ID: ${{ vars.ARM_TENANT_ID }}
+        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+        ARM_TENANT_ID: ${{ vars.ARM_TENANT_ID }}
         #ARM_SUBSCRIPTION_ID: ${{ vars.ARM_SUBSCRIPTION_ID }}
         #RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
         #STORAGE_ACCOUNT: ${{ secrets.STORAGE_ACCOUNT }}
