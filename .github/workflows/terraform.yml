@@ -34,10 +34,10 @@ jobs:
     - name: Terraform Init with Azurerm backend
       id: init
       env:
-        AZ_RG_NM: ${{ secrets.RESOURCE_GROUP }}
-        AZ_STORAGE_ACC_NM: ${{ secrets.STORAGE_ACCOUNT }}
-        AZ_CONTAINER_NM: ${{ secrets.CONTAINER_NAME }}
-        TF_KEY: "test.terraform.tfstate"
+        #AZ_RG_NM: ${{ secrets.RESOURCE_GROUP }}
+        #AZ_STORAGE_ACC_NM: ${{ secrets.STORAGE_ACCOUNT }}
+        #AZ_CONTAINER_NM: ${{ secrets.CONTAINER_NAME }}
+        #TF_KEY: "test.terraform.tfstate"
         ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
       #run: terraform init -backend-config="storage_account_name=$AZ_STORAGE_ACC_NM" -backend-config="container_name=$AZ_CONTAINER_NM" -backend-config="key=$TF_KEY" -backend-config="resource_group_name=$AZ_RG_NM" -backend-config="use_azuread_auth=true"
       run: terraform init 
@@ -53,13 +53,13 @@ jobs:
 #    # Generates an execution plan for Terraform
 #    - name: Terraform Plan
 #      run: terraform plan -input=false
-# Generates an execution plan for Terraform
+#    # Generates an execution plan for Terraform
     - name: Terraform Plan
       id: plan
       env:
-        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-        ARM_TENANT_ID: ${{ vars.ARM_TENANT_ID }}
+        #ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        #ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+        #ARM_TENANT_ID: ${{ vars.ARM_TENANT_ID }}
         #ARM_SUBSCRIPTION_ID: ${{ vars.ARM_SUBSCRIPTION_ID }}
         #RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
         #STORAGE_ACCOUNT: ${{ secrets.STORAGE_ACCOUNT }}

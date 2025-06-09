@@ -4,9 +4,10 @@ terraform {
   backend "azurerm" {
     #access_key           = "abcdefghijklmnopqrstuvwxyz0123456789..."  # Can also be set via `ARM_ACCESS_KEY` environment variable.
     # Will be passed in GITHUB workflow
-    #storage_account_name = "abcd1234"                                 # Can be passed via `-backend-config=`"storage_account_name=<storage account name>"` in the `init` command.
-    #container_name       = "tfstate"                                  # Can be passed via `-backend-config=`"container_name=<container name>"` in the `init` command.
-    #key                  = "prod.terraform.tfstate"                   # Can be passed via `-backend-config=`"key=<blob key name>"` in the `init` command.
+    storage_account_name = "tfstate076"
+    container_name       = "tfstate"
+    resource_group_name   = "rg-tfstate"
+    key                  = "new-test.terraform.tfstate"
   }
   ###backend "azurerm" {
   ###  #use_oidc             = true                                    # Can also be set via `ARM_USE_OIDC` environment variable.
