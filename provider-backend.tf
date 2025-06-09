@@ -2,7 +2,7 @@ terraform {
   backend "azurerm" {
     #Variable ARM_USE_OIDC is set to "true"
     #use_oidc             = true                                    # Can also be set via `ARM_USE_OIDC` environment variable.
-    #Variable ARM_USE_AZUREAD is set to "true"
+    #Variable ARM_USE_AZUREAD is set to "true" in 'IWEOFTEST' environment
     #use_azuread_auth     = true                                    # Can also be set via `ARM_USE_AZUREAD` environment variable.
     # Production tenant ID set manually here to avoid confusion with Test tenant ID
     tenant_id            = "720b637a-655a-40cf-816a-f22f40755c2c"  # Can also be set via `ARM_TENANT_ID` environment variable.
