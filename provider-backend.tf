@@ -6,7 +6,7 @@ terraform {
     # Will be passed in GITHUB workflow
     storage_account_name = "tfstate076"
     container_name       = "tfstate"
-    resource_group_name   = "rg-tfstate"
+    resource_group_name  = "rg-tfstate"
     key                  = "new-test.terraform.tfstate"
   }
   ###backend "azurerm" {
