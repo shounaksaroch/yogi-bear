@@ -32,6 +32,10 @@ jobs:
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+
+    - name: DUMP ENV VARIABLE CONTEXT - ENV here should be 'iweoftest'
+      run: env
+
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init with Azurerm backend
       id: init
