@@ -19,9 +19,6 @@ terraform {
 provider "azuread" {
 }
 
-provider "azurerm" {
-}
-
 # All configuration(where possible) is done via GIT repo variables/secrets
 ## ARM_CLIENT_ID      - secret
 ## ARM_CLIENT_SECRET  - secret
