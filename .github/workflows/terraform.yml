@@ -33,19 +33,23 @@ jobs:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     - name: DUMP ENV VARIABLE CONTEXT - ENV here should be 'iweoftest'
-      run: env
+      env:
+        ENV_JSON: ${{ toJSON(env) }}
+      run: echo "${ENV_JSON}"
 
-    - name: DUMP ENV VARIABLE CONTEXT - ENV here should be 'iweoftest'
-      run: vars.iweoftest
+    - name: DUMP VARS VARIABLE CONTEXT - VARS context covers all variables set at the org/repo/environment levels in GITHUB
+      env:
+        VARS_JSON: ${{ toJSON(vars) }}
+      run: echo "${VARS_JSON}"
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init with Azurerm backend
       id: init
       env:
-        #AZ_RG_NM: ${{ secrets.RESOURCE_GROUP }}      # This is optional so hashed out
+        #AZ_RG_NM: ${{ secrets.RESOURCE_GROUP }}              # This is optional so hashed out
         AZ_STO_ACC_NM: ${{ vars.TEST_STORAGE_ACCOUNT }}
         AZ_CONTNR_NM: ${{ vars.TEST_CONTAINER }}
-        TF_KEY: ${{ env.TEST_KEY }}
+        TF_KEY: ${{ vars.TEST_KEY }}
         #ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
       #run: terraform init
       run: terraform init -backend-config="storage_account_name=$AZ_STO_ACC_NM" -backend-config="container_name=$AZ_CONTNR_NM" -backend-config="key=$TF_KEY"
